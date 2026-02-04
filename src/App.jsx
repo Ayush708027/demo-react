@@ -1,14 +1,21 @@
-function App(){
-  const userName="Ayush Prajapati"
-  let x=20;
-  let y=30;
-  return(
+import { useState } from "react";
+import Counter from "./Counter.jsx";   
+
+function App() {
+  const [fruit, setFruit] = useState("Apple");
+
+  const handleFruit = () => {
+    setFruit("Banana");
+  };
+
+  return (
     <div>
-      <h1>{userName}</h1>
-      <h1>{10+30+40}</h1>
-      <h1>{x*y}</h1>
-      <button onClick={()=>alert("Hello")}>click Me</button>
+      <h1>State in React Js</h1>
+      <h1>{fruit}</h1>
+      <button onClick={handleFruit}>Change Fruit Name</button>
+      <Counter />
     </div>
-  )
+  );
 }
+
 export default App;
