@@ -1,51 +1,19 @@
-import User from './User'
+import {useState} from "react"
+import Clock from "./Clock"
 function App(){
-  const userName=['anil','sam','peter','bruce']
+  const[color,setColor]=useState('green');
 
-  const userData=[
-    { 
-      id:1,
-      name:'Anil',
-      age:'29',
-      email:"anil@test.com",
-      
-    },
-    {
-      id:2,
-      name:'Sam',
-      age:'23',
-      email:"sam@test.com",
-      
-    },
-    {
-      id:3,
-      name:'Peter',
-      age:'19',
-      email:"peter@test.com",
-     
-    },
-    {
-      id:4,
-      name:'Bruce',
-      age:'30',
-      email:"bruce@test.com",
-      
-    }
-  ]
   return(
     <div>
-      <h1>Reuse Component in Loop</h1>
-  {
-    userData.map((user)=>(
-      <div key={user.id}>
-        <User data={user}/>
-      </div>
-    ))
-  } 
-
+      <h1>Default props in React Js</h1>
+      <select onChange={(event)=>setColor(event.target.value)}>
+        <option value={"red"}>Red</option>
+        <option value={"blue"}>Blue</option>
+        <option value={"green"}>Green</option>
+        <option value={"yellow"}>Yellow</option>
+      </select>
+      <Clock color={color}/>
     </div>
-   
-   
   )
 }
 export default App;
