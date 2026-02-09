@@ -1,51 +1,25 @@
-import User from './User'
+import {useEffect} from "react"
+import {useState} from "react";
 function App(){
-  const userName=['anil','sam','peter','bruce']
+const[counter,setCounter]=useState(0);
+const[data,setData]=useState(0);
 
-  const userData=[
-    { 
-      id:1,
-      name:'Anil',
-      age:'29',
-      email:"anil@test.com",
-      
-    },
-    {
-      id:2,
-      name:'Sam',
-      age:'23',
-      email:"sam@test.com",
-      
-    },
-    {
-      id:3,
-      name:'Peter',
-      age:'19',
-      email:"peter@test.com",
-     
-    },
-    {
-      id:4,
-      name:'Bruce',
-      age:'30',
-      email:"bruce@test.com",
-      
-    }
-  ]
+useEffect(()=>{
+    callOnce();
+},[counter,data])
+
+  function callOnce(){
+    console.log("callOnce function called");
+
+  }
+ 
+ 
   return(
     <div>
-      <h1>Reuse Component in Loop</h1>
-  {
-    userData.map((user)=>(
-      <div key={user.id}>
-        <User data={user}/>
-      </div>
-    ))
-  } 
-
-    </div>
-   
-   
+      <h1>useEffect Hook</h1>
+      <button onClick={()=>setCounter(counter+1)}>Counter{counter}</button>
+      <button onClick={()=>setData(data+1)}>Data{data}</button>
+    </div>  
   )
 }
 export default App;
